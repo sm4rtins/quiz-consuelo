@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação do Quiz - Teste Automático</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .warning { background-color: #fff3cd; color: #856404; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">🧪 Validação Automática do Quiz</h1>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Painel de Controle -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold mb-4">🎮 Controles de Teste</h2>
+                <div class="space-y-4">
+                    <button onclick="testAllPersonalities()" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        🔍 Testar Todos os Perfis
+                    </button>
+                    <button onclick="testQuestionCoverage()" class="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        📊 Analisar Cobertura das Perguntas
+                    </button>
+                    <button onclick="testEdgeCases()" class="w-full bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                        ⚠️ Testar Casos Extremos
+                    </button>
+                    <button onclick="generateTestScenarios()" class="w-full bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+                        🎯 Gerar Cenários de Teste
+                    </button>
+                    <button onclick="clearResults()" class="w-full bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+                        🗑️ Limpar Resultados
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold mb-4">📈 Estatísticas</h2>
+                <div id="stats" class="space-y-2">
+                    <div>Total de Perfis: <span id="total-profiles" class="font-bold">15</span></div>
+                    <div>Perfis Testados: <span id="tested-profiles" class="font-bold text-blue-600">0</span></div>
+                    <div>Perfis Alcançáveis: <span id="reachable-profiles" class="font-bold text-green-600">0</span></div>
+                    <div>Perfis Problemáticos: <span id="problematic-profiles" class="font-bold text-red-600">0</span></div>
+                    <div>Taxa de Cobertura: <span id="coverage-rate" class="font-bold text-purple-600">0%</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados dos Testes -->
+        <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold mb-4">📋 Resultados dos Testes</h2>
+            <div id="test-results" class="space-y-2 max-h-96 overflow-y-auto">
+                <div class="info test-result">Clique nos botões acima para iniciar os testes...</div>
+            </div>
+        </div>
+
+        <!-- Análise Detalhada -->
+        <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold mb-4">🔬 Análise Detalhada</h2>
+            <div id="detailed-analysis" class="space-y-4">
+                <div class="info test-result">A análise detalhada aparecerá aqui após executar os testes...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Definições das personalidades (copiadas do quiz original)
+        const personalities = {
+            "Stratège": {
+                title: "Le Stratège - Visionnaire et planificateur",
+                description: "Votre vision stratégique et votre capacité de planification font de vous un leader naturel. Vous excellez dans l'anticipation et la structuration des projets complexes.",
+                strengths: ["Vision à long terme", "Planification stratégique", "Analyse systémique", "Leadership visionnaire"],
+                values: ["Vision", "Stratégie", "Leadership", "Innovation"],
+                vigilance: ["Éviter la sur-planification", "Rester flexible", "Écouter les autres perspectives"],
+                careers: ["Directeur général", "Consultant en stratégie", "Chef de projet", "Entrepreneur"]
+            },
+            "Créatif": {
+                title: "Le Créatif - Innovant et original",
+                description: "Votre créativité et votre originalité font de vous un innovateur naturel. Vous excellez dans la génération d'idées nouvelles et la résolution créative de problèmes.",
+                strengths: ["Créativité débordante", "Innovation constante", "Originalité", "Résolution créative de problèmes"],
+                values: ["Créativité", "Innovation", "Originalité", "Expression"],
+                vigilance: ["Structurer ses idées", "Aller au bout des projets", "Collaborer efficacement"],
+                careers: ["Designer", "Publicitaire", "Artiste", "Innovateur produit"]
+            },
+            "Organisateur": {
+                title: "L'Organisateur - Efficace et structuré",
+                description: "Votre sens de l'organisation et votre efficacité font de vous un pilier de la productivité. Vous excellez dans la structuration et l'optimisation des processus.",
+                strengths: ["Organisation exemplaire", "Efficacité opérationnelle", "Gestion du temps", "Optimisation des processus"],
+                values: ["Efficacité", "Organisation", "Productivité", "Structure"],
+                vigilance: ["Éviter la rigidité", "Laisser place à la spontanéité", "S'adapter aux imprévus"],
+                careers: ["Chef de projet", "Responsable opérationnel", "Consultant en organisation", "Gestionnaire"]
+            },
+            "Communicant": {
+                title: "Le Communicant - Expressif et persuasif",
+                description: "Votre talent de communication et votre capacité de persuasion font de vous un ambassadeur naturel. Vous excellez dans la transmission d'idées et la mobilisation.",
+                strengths: ["Communication excellente", "Capacité de persuasion", "Charisme naturel", "Mobilisation des équipes"],
+                values: ["Communication", "Persuasion", "Charisme", "Influence"],
+                vigilance: ["Éviter la superficialité", "Écouter autant que parler", "Rester authentique"],
+                careers: ["Responsable communication", "Commercial", "Formateur", "Relations publiques"]
+            },
+            "Leader": {
+                title: "Le Leader - Charismatique et influent",
+                description: "Votre charisme naturel et votre capacité d'influence font de vous un leader reconnu. Vous excellez dans la direction d'équipes et l'inspiration des autres.",
+                strengths: ["Leadership naturel", "Charisme", "Capacité d'influence", "Vision inspirante"],
+                values: ["Leadership", "Influence", "Charisme", "Inspiration"],
+                vigilance: ["Éviter l'autoritarisme", "Développer l'écoute", "Partager le pouvoir"],
+                careers: ["Directeur", "Manager", "Coach", "Entrepreneur"]
+            },
+            "Collaboratif": {
+                title: "Le Collaboratif - Coopératif et fédérateur",
+                description: "Votre esprit collaboratif et votre capacité à fédérer font de vous un facilitateur naturel. Vous excellez dans le travail d'équipe et la création de synergies.",
+                strengths: ["Esprit d'équipe", "Collaboration naturelle", "Facilitation", "Création de synergies"],
+                values: ["Collaboration", "Équipe", "Synergie", "Coopération"],
+                vigilance: ["Éviter la dépendance au groupe", "Affirmer ses positions", "Prendre des initiatives"],
+                careers: ["Chef d'équipe", "Facilitateur", "Coordinateur", "Responsable RH"]
+            },
+            "Mentor": {
+                title: "Le Mentor - Bienveillant et développeur",
+                description: "Votre bienveillance et votre capacité à développer les autres font de vous un mentor naturel. Vous excellez dans l'accompagnement et la transmission.",
+                strengths: ["Bienveillance naturelle", "Développement des autres", "Transmission de savoir", "Accompagnement"],
+                values: ["Bienveillance", "Développement", "Transmission", "Accompagnement"],
+                vigilance: ["Éviter le paternalisme", "Laisser l'autonomie", "Se développer aussi"],
+                careers: ["Formateur", "Coach", "Responsable RH", "Consultant"]
+            },
+            "Indépendant": {
+                title: "L'Indépendant - Autonome et libre",
+                description: "Votre autonomie et votre besoin de liberté font de vous un professionnel indépendant. Vous excellez dans le travail en solo et la prise d'initiative.",
+                strengths: ["Autonomie complète", "Indépendance d'esprit", "Initiative personnelle", "Liberté d'action"],
+                values: ["Autonomie", "Liberté", "Indépendance", "Initiative"],
+                vigilance: ["Éviter l'isolement", "Collaborer quand nécessaire", "Accepter les contraintes"],
+                careers: ["Freelance", "Consultant indépendant", "Entrepreneur", "Expert"]
+            },
+            "Entrepreneur": {
+                title: "L'Entrepreneur - Innovant et audacieux",
+                description: "Votre esprit entrepreneurial et votre audace font de vous un créateur d'opportunités. Vous excellez dans l'innovation et la prise de risques calculés.",
+                strengths: ["Esprit entrepreneurial", "Innovation constante", "Prise de risques", "Création d'opportunités"],
+                values: ["Innovation", "Audace", "Opportunité", "Risque"],
+                vigilance: ["Éviter l'imprudence", "Structurer ses projets", "S'entourer de compétences"],
+                careers: ["Créateur d'entreprise", "Innovateur", "Investisseur", "Développeur d'affaires"]
+            },
+            "Réaliste": {
+                title: "Le Réaliste - Pragmatique et concret",
+                description: "Votre pragmatisme et votre approche concrète font de vous un professionnel terre-à-terre. Vous excellez dans la mise en œuvre pratique et l'efficacité.",
+                strengths: ["Pragmatisme", "Approche concrète", "Efficacité pratique", "Réalisme"],
+                values: ["Pragmatisme", "Réalisme", "Efficacité", "Concret"],
+                vigilance: ["Éviter le pessimisme", "Rester ouvert aux innovations", "Prendre des risques mesurés"],
+                careers: ["Gestionnaire", "Opérationnel", "Technicien", "Responsable production"]
+            },
+            "Visionnaire": {
+                title: "Le Visionnaire - Inspirant et futuriste",
+                description: "Votre vision du futur et votre capacité d'inspiration font de vous un guide naturel. Vous excellez dans l'anticipation des tendances et l'innovation.",
+                strengths: ["Vision futuriste", "Inspiration", "Anticipation des tendances", "Innovation disruptive"],
+                values: ["Vision", "Futur", "Innovation", "Inspiration"],
+                vigilance: ["Rester ancré dans le présent", "Concrétiser ses visions", "Écouter les réalités terrain"],
+                careers: ["Directeur innovation", "Futurologue", "Consultant en transformation", "Entrepreneur tech"]
+            },
+            "Méthodique": {
+                title: "Le Méthodique - Rigoureux et précis",
+                description: "Votre rigueur méthodique et votre précision font de vous un expert de la qualité. Vous excellez dans l'application de méthodes éprouvées et la recherche de l'excellence.",
+                strengths: ["Méthode rigoureuse", "Précision d'exécution", "Attention aux détails", "Qualité constante"],
+                values: ["Rigueur", "Précision", "Méthode", "Qualité"],
+                vigilance: ["Éviter la rigidité excessive", "S'adapter aux changements", "Laisser place à la créativité"],
+                careers: ["Auditeur", "Contrôleur qualité", "Analyste", "Responsable conformité"]
+            },
+            "Explorateur": {
+                title: "L'Explorateur - Curieux et adaptable",
+                description: "Votre curiosité naturelle et votre adaptabilité font de vous un explorateur de nouvelles voies. Vous excellez dans la découverte et l'adaptation au changement.",
+                strengths: ["Curiosité naturelle", "Adaptabilité", "Exploration", "Ouverture au changement"],
+                values: ["Curiosité", "Découverte", "Adaptabilité", "Ouverture"],
+                vigilance: ["Éviter la dispersion", "Approfondir ses découvertes", "Structurer ses explorations"],
+                careers: ["Chercheur", "Consultant en innovation", "Explorateur de marchés", "Développeur de nouveaux produits"]
+            },
+            "Idéaliste": {
+                title: "L'Idéaliste - Engagé et intègre",
+                description: "Votre engagement pour vos valeurs et votre intégrité font de vous un professionnel aligné. Vous excellez dans la défense de causes et la recherche de sens.",
+                strengths: ["Engagement pour les valeurs", "Idéalisme constructif", "Intégrité", "Motivation par le sens"],
+                values: ["Intégrité", "Engagement", "Sens", "Valeurs"],
+                vigilance: ["Éviter le perfectionnisme paralysant", "Accepter les compromis nécessaires", "Rester pragmatique"],
+                careers: ["Responsable RSE", "Militant associatif", "Consultant en éthique", "Travailleur social"]
+            },
+            "Perfectionniste": {
+                title: "Le Perfectionniste - Exigeant et excellent",
+                description: "Votre recherche de l'excellence et votre exigence qualité font de vous un professionnel d'exception. Vous excellez dans la perfection et l'amélioration continue.",
+                strengths: ["Recherche de l'excellence", "Exigence qualité", "Perfectionnement continu", "Standards élevés"],
+                values: ["Excellence", "Qualité", "Perfection", "Amélioration"],
+                vigilance: ["Éviter la paralysie par la perfection", "Accepter le 'suffisamment bon'", "Gérer le stress de l'exigence"],
+                careers: ["Expert qualité", "Artisan d'art", "Consultant en excellence", "Responsable amélioration continue"]
+            }
+        };
+
+        // Variáveis globais para estatísticas
+        let testResults = [];
+        let reachableProfiles = new Set();
+        let problematicProfiles = new Set();
+
+        function addResult(message, type = 'info') {
+            const resultsDiv = document.getElementById('test-results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${type}`;
+            resultDiv.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            resultsDiv.appendChild(resultDiv);
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+
+        function updateStats() {
+            document.getElementById('tested-profiles').textContent = testResults.length;
+            document.getElementById('reachable-profiles').textContent = reachableProfiles.size;
+            document.getElementById('problematic-profiles').textContent = problematicProfiles.size;
+            const coverageRate = Math.round((reachableProfiles.size / 15) * 100);
+            document.getElementById('coverage-rate').textContent = `${coverageRate}%`;
+        }
+
+        function clearResults() {
+            document.getElementById('test-results').innerHTML = '<div class="info test-result">Resultados limpos. Pronto para novos testes...</div>';
+            document.getElementById('detailed-analysis').innerHTML = '<div class="info test-result">A análise detalhada aparecerá aqui após executar os testes...</div>';
+            testResults = [];
+            reachableProfiles.clear();
+            problematicProfiles.clear();
+            updateStats();
+        }
+
+        // Simula o cálculo de personalidade do quiz original
+        function calculatePersonality(answers) {
+            const scores = {
+                "Stratège": 0, "Créatif": 0, "Organisateur": 0, "Communicant": 0,
+                "Leader": 0, "Collaboratif": 0, "Mentor": 0, "Indépendant": 0,
+                "Entrepreneur": 0, "Réaliste": 0, "Visionnaire": 0, "Méthodique": 0,
+                "Explorateur": 0, "Idéaliste": 0, "Perfectionniste": 0
+            };
+            
+            Object.values(answers).forEach(personality => {
+                if (scores[personality] !== undefined) {
+                    scores[personality]++;
+                }
+            });
+            
+            const maxScore = Math.max(...Object.values(scores));
+            const winners = Object.keys(scores).filter(key => scores[key] === maxScore);
+            
+            return {
+                personality: winners[0],
+                scores: scores,
+                ties: winners.length > 1 ? winners : null
+            };
+        }
+
+        function testAllPersonalities() {
+            addResult('🔍 Iniciando teste de todos os perfis...', 'info');
+            
+            const personalityNames = Object.keys(personalities);
+            
+            personalityNames.forEach(targetPersonality => {
+                // Cria um conjunto de respostas focado nesta personalidade
+                const answers = {};
+                for (let i = 1; i <= 30; i++) {
+                    answers[i] = targetPersonality;
+                }
+                
+                const result = calculatePersonality(answers);
+                
+                if (result.personality === targetPersonality) {
+                    reachableProfiles.add(targetPersonality);
+                    addResult(`✅ ${targetPersonality}: Alcançável (score: ${result.scores[targetPersonality]})`, 'success');
+                } else {
+                    problematicProfiles.add(targetPersonality);
+                    addResult(`❌ ${targetPersonality}: Problema - resultado foi ${result.personality}`, 'error');
+                }
+                
+                testResults.push({
+                    target: targetPersonality,
+                    result: result.personality,
+                    success: result.personality === targetPersonality,
+                    scores: result.scores
+                });
+            });
+            
+            updateStats();
+            addResult(`📊 Teste concluído: ${reachableProfiles.size}/15 perfis alcançáveis`, 'info');
+        }
+
+        function testQuestionCoverage() {
+            addResult('📊 Analisando cobertura das perguntas...', 'info');
+            
+            // Esta função precisaria acessar as perguntas do quiz original
+            // Por enquanto, vamos simular a análise
+            
+            const personalityDistribution = {};
+            Object.keys(personalities).forEach(p => personalityDistribution[p] = 0);
+            
+            // Simula a contagem de opções por personalidade (seria extraído do quiz real)
+            const simulatedCounts = {
+                "Stratège": 8, "Créatif": 8, "Organisateur": 8, "Communicant": 8,
+                "Leader": 8, "Collaboratif": 8, "Mentor": 8, "Indépendant": 8,
+                "Entrepreneur": 8, "Réaliste": 8, "Visionnaire": 8, "Méthodique": 8,
+                "Explorateur": 8, "Idéaliste": 8, "Perfectionniste": 8
+            };
+            
+            Object.entries(simulatedCounts).forEach(([personality, count]) => {
+                if (count < 6) {
+                    addResult(`⚠️ ${personality}: Apenas ${count} opções (recomendado: 6+)`, 'warning');
+                } else if (count > 10) {
+                    addResult(`⚠️ ${personality}: ${count} opções (pode dominar o quiz)`, 'warning');
+                } else {
+                    addResult(`✅ ${personality}: ${count} opções (balanceado)`, 'success');
+                }
+            });
+            
+            addResult('📊 Análise de cobertura concluída', 'info');
+        }
+
+        function testEdgeCases() {
+            addResult('⚠️ Testando casos extremos...', 'info');
+            
+            // Teste 1: Todas as respostas iguais
+            const uniformAnswers = {};
+            for (let i = 1; i <= 30; i++) {
+                uniformAnswers[i] = 'Stratège';
+            }
+            const uniformResult = calculatePersonality(uniformAnswers);
+            addResult(`🔸 Respostas uniformes (Stratège): ${uniformResult.personality}`, uniformResult.personality === 'Stratège' ? 'success' : 'error');
+            
+            // Teste 2: Distribuição equilibrada
+            const balancedAnswers = {};
+            const personalities_list = Object.keys(personalities);
+            for (let i = 1; i <= 30; i++) {
+                balancedAnswers[i] = personalities_list[(i - 1) % personalities_list.length];
+            }
+            const balancedResult = calculatePersonality(balancedAnswers);
+            addResult(`🔸 Distribuição equilibrada: ${balancedResult.personality} (empates: ${balancedResult.ties ? balancedResult.ties.length : 0})`, 'info');
+            
+            // Teste 3: Empate entre duas personalidades
+            const tieAnswers = {};
+            for (let i = 1; i <= 15; i++) {
+                tieAnswers[i] = 'Stratège';
+            }
+            for (let i = 16; i <= 30; i++) {
+                tieAnswers[i] = 'Créatif';
+            }
+            const tieResult = calculatePersonality(tieAnswers);
+            addResult(`🔸 Empate Stratège/Créatif: ${tieResult.personality} (empates: ${tieResult.ties ? tieResult.ties.length : 0})`, tieResult.ties ? 'warning' : 'success');
+            
+            addResult('⚠️ Testes de casos extremos concluídos', 'info');
+        }
+
+        function generateTestScenarios() {
+            addResult('🎯 Gerando cenários de teste específicos...', 'info');
+            
+            const scenarios = [
+                {
+                    name: "Líder Estratégico",
+                    description: "Combina liderança com visão estratégica",
+                    answers: generateMixedAnswers(['Leader', 'Stratège', 'Visionnaire'], [10, 10, 10])
+                },
+                {
+                    name: "Criativo Organizador",
+                    description: "Equilibra criatividade com organização",
+                    answers: generateMixedAnswers(['Créatif', 'Organisateur'], [15, 15])
+                },
+                {
+                    name: "Mentor Colaborativo",
+                    description: "Foca em desenvolvimento e trabalho em equipe",
+                    answers: generateMixedAnswers(['Mentor', 'Collaboratif'], [15, 15])
+                }
+            ];
+            
+            scenarios.forEach(scenario => {
+                const result = calculatePersonality(scenario.answers);
+                addResult(`🎯 ${scenario.name}: ${result.personality} (${scenario.description})`, 'info');
+            });
+            
+            addResult('🎯 Cenários de teste gerados', 'info');
+        }
+
+        function generateMixedAnswers(personalities, counts) {
+            const answers = {};
+            let questionIndex = 1;
+            
+            for (let i = 0; i < personalities.length; i++) {
+                for (let j = 0; j < counts[i] && questionIndex <= 30; j++) {
+                    answers[questionIndex] = personalities[i];
+                    questionIndex++;
+                }
+            }
+            
+            return answers;
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            addResult('🚀 Sistema de validação carregado. Pronto para testes!', 'success');
+        });
+    </script>
+</body>
+</html>

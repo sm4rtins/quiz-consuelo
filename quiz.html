@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Personnalité Professionnelle - 30 Questions</title>
+    <title>Quiz de Personnalité - 30 Questions</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         .quiz-option:hover {
@@ -23,18 +24,18 @@
         }
     </style>
 </head>
-<body class="animated-bg min-h-screen p-4">
-    <div class="max-w-4xl mx-auto py-8">
-        <div class="text-center mb-8 bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h1 class="text-4xl font-bold text-white mb-4 drop-shadow-lg">
-                <i class="fas fa-brain mr-3 text-yellow-300"></i>Quiz de Personnalité Professionnelle
-            </h1>
-            <p class="text-white/90 text-lg font-medium drop-shadow">Découvrez votre profil professionnel en 30 questions</p>
-            <div class="mt-4 inline-flex items-center bg-green-500/20 text-green-100 px-4 py-2 rounded-full">
-                <i class="fas fa-check-circle mr-2"></i>
-                Version corrigée: 30 questions complètes!
+<body class="animated-bg min-h-screen">
+    <!-- Header fixo com logo -->
+    <div class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 py-3">
+            <div class="flex justify-center">
+                <img src="images/logo-crauen.svg" alt="Crauen Logo" class="h-12">
             </div>
         </div>
+    </div>
+    
+    <!-- Conteúdo principal -->
+    <div class="max-w-4xl mx-auto py-8 px-4">
         <div id="quiz-content"></div>
     </div>
 
@@ -46,182 +47,182 @@ class PersonalityQuiz {
             { id: 1, question: "Face à un nouveau projet, je préfère…", options: [
                 { text: "Planifier chaque étape en détail", personality: "Stratège" },
                 { text: "Imaginer des solutions originales et innovantes", personality: "Créatif" },
-                { text: "Analyser les données disponibles", personality: "Analyste" },
-                { text: "Chercher à comprendre les besoins humains", personality: "Empathique" }
+                { text: "Organiser les tâches et les ressources pour que tout soit efficace", personality: "Organisateur" },
+                { text: "Communiquer et mobiliser l'équipe autour de l'idée", personality: "Communicant" }
             ]},
             { id: 2, question: "Dans une réunion d'équipe, je suis plutôt celui qui…", options: [
-                { text: "Propose de nouvelles idées audacieuses", personality: "Créatif" },
-                { text: "Pose des questions pour clarifier les objectifs", personality: "Analyste" },
-                { text: "Écoute attentivement les préoccupations de chacun", personality: "Empathique" },
-                { text: "Structure la discussion et guide vers des décisions", personality: "Stratège" }
+                { text: "Prend les décisions et guide le groupe", personality: "Leader" },
+                { text: "Travaille en harmonie et collabore avec les autres", personality: "Collaboratif" },
+                { text: "Accompagne et conseille les membres de l'équipe", personality: "Mentor" },
+                { text: "Préfère travailler de manière autonome et indépendante", personality: "Indépendant" }
             ]},
-            { id: 3, question: "Quand je résous un problème complexe, j'aime…", options: [
-                { text: "Décomposer le problème en éléments analysables", personality: "Analyste" },
-                { text: "Chercher des solutions qui tiennent compte de l'impact humain", personality: "Empathique" },
-                { text: "Développer un plan méthodique et structuré", personality: "Stratège" },
-                { text: "Explorer des approches non conventionnelles", personality: "Créatif" }
+            { id: 3, question: "Quand je dois résoudre un problème complexe, je…", options: [
+                { text: "Chercher une solution pratique et réalisable", personality: "Réaliste" },
+                { text: "Imaginer des idées nouvelles et ambitieuses", personality: "Visionnaire" },
+                { text: "Analyser méthodiquement chaque détail", personality: "Méthodique" },
+                { text: "Viser la perfection et éviter toute erreur", personality: "Perfectionniste" }
             ]},
-            { id: 4, question: "Ma motivation principale au travail est…", options: [
-                { text: "Créer quelque chose d'unique et innovant", personality: "Créatif" },
-                { text: "Comprendre et résoudre des défis complexes", personality: "Analyste" },
-                { text: "Aider les autres à réussir et s'épanouir", personality: "Empathique" },
-                { text: "Atteindre des objectifs ambitieux", personality: "Stratège" }
+            { id: 4, question: "Ce qui me motive le plus dans un projet est…", options: [
+                { text: "Mettre en place une stratégie efficace", personality: "Stratège" },
+                { text: "Créer et inventer quelque chose d'original", personality: "Créatif" },
+                { text: "Organiser et structurer pour que tout fonctionne", personality: "Organisateur" },
+                { text: "Aider et guider les autres pour réussir ensemble", personality: "Mentor" }
             ]},
-            { id: 5, question: "Face à une décision importante, je m'appuie sur…", options: [
-                { text: "Des données factuelles et des analyses approfondies", personality: "Analyste" },
-                { text: "Les répercussions sur les personnes concernées", personality: "Empathique" },
-                { text: "Une vision stratégique à long terme", personality: "Stratège" },
-                { text: "Mon intuition et ma créativité", personality: "Créatif" }
+            { id: 5, question: "Face à l'imprévu, je réagis en…", options: [
+                { text: "Explorer de nouvelles solutions et expérimenter", personality: "Explorateur" },
+                { text: "Chercher la solution la plus pragmatique", personality: "Réaliste" },
+                { text: "Imaginer des perspectives et solutions futures", personality: "Visionnaire" },
+                { text: "Suivre mes valeurs et agir en fonction de ce qui me semble juste", personality: "Idéaliste" }
             ]},
             { id: 6, question: "Dans un environnement de travail idéal, je préfère…", options: [
-                { text: "Un cadre flexible qui permet l'expérimentation", personality: "Créatif" },
-                { text: "Un environnement structuré avec des objectifs clairs", personality: "Stratège" },
-                { text: "Un espace collaboratif et humain", personality: "Empathique" },
-                { text: "Un lieu où je peux me concentrer sur l'analyse", personality: "Analyste" }
+                { text: "Diriger et prendre des décisions importantes", personality: "Leader" },
+                { text: "Collaborer et travailler en équipe", personality: "Collaboratif" },
+                { text: "Communiquer et échanger avec les autres", personality: "Communicant" },
+                { text: "Travailler de manière autonome et indépendante", personality: "Indépendant" }
             ]},
             { id: 7, question: "Quand je communique avec mes collègues, je privilégie…", options: [
-                { text: "La clarté et la précision des informations", personality: "Analyste" },
-                { text: "L'écoute active et la bienveillance", personality: "Empathique" },
-                { text: "L'efficacité et les résultats concrets", personality: "Stratège" },
-                { text: "L'inspiration et le partage d'idées nouvelles", personality: "Créatif" }
+                { text: "Entreprendre et lancer de nouveaux projets", personality: "Entrepreneur" },
+                { text: "Chercher des solutions pratiques et concrètes", personality: "Réaliste" },
+                { text: "Imaginer et concevoir l'avenir", personality: "Visionnaire" },
+                { text: "Suivre des méthodes et procédures établies", personality: "Méthodique" }
             ]},
             { id: 8, question: "Face à un changement organisationnel, ma réaction est…", options: [
-                { text: "Voir cela comme une opportunité d'innovation", personality: "Créatif" },
-                { text: "Analyser les impacts et les risques", personality: "Analyste" },
-                { text: "M'assurer que l'équipe s'adapte bien", personality: "Empathique" },
-                { text: "Élaborer une stratégie d'adaptation", personality: "Stratège" }
+                { text: "Explorer et découvrir de nouvelles approches", personality: "Explorateur" },
+                { text: "Suivre mes convictions et valeurs personnelles", personality: "Idéaliste" },
+                { text: "Viser l'excellence et la perfection", personality: "Perfectionniste" },
+                { text: "Développer une stratégie claire et efficace", personality: "Stratège" }
             ]},
             { id: 9, question: "Mon style de leadership se caractérise par…", options: [
-                { text: "La capacité à inspirer et motiver par la vision", personality: "Créatif" },
-                { text: "La prise de décisions basées sur des faits", personality: "Analyste" },
-                { text: "L'attention portée au développement de chacun", personality: "Empathique" },
-                { text: "La définition d'objectifs clairs et ambitieux", personality: "Stratège" }
+                { text: "Créer et développer des idées originales", personality: "Créatif" },
+                { text: "Organiser et structurer les activités", personality: "Organisateur" },
+                { text: "Communiquer et fédérer autour d'un projet", personality: "Communicant" },
+                { text: "Diriger avec autorité et détermination", personality: "Leader" }
             ]},
-            { id: 10, question: "Dans la gestion de conflit, j'ai tendance à…", options: [
-                { text: "Chercher des solutions créatives qui satisfont tous", personality: "Créatif" },
-                { text: "Analyser objectivement les causes du conflit", personality: "Analyste" },
-                { text: "Faciliter le dialogue et la compréhension mutuelle", personality: "Empathique" },
-                { text: "Trancher fermement pour rétablir l'efficacité", personality: "Stratège" }
+            { id: 10, question: "Ce qui me satisfait le plus dans mon travail, c'est…", options: [
+                { text: "Collaborer efficacement avec une équipe", personality: "Collaboratif" },
+                { text: "Accompagner et développer les autres", personality: "Mentor" },
+                { text: "Travailler en toute autonomie", personality: "Indépendant" },
+                { text: "Entreprendre de nouveaux défis", personality: "Entrepreneur" }
             ]},
             { id: 11, question: "Pour moi, le succès professionnel se définit par…", options: [
-                { text: "La capacité à créer de la valeur ajoutée unique", personality: "Créatif" },
-                { text: "La maîtrise technique et l'expertise reconnue", personality: "Analyste" },
-                { text: "L'impact positif sur les autres et l'organisation", personality: "Empathique" },
-                { text: "L'atteinte d'objectifs ambitieux et mesurables", personality: "Stratège" }
+                { text: "Obtenir des résultats concrets et pratiques", personality: "Réaliste" },
+                { text: "Réaliser une vision ambitieuse pour l'avenir", personality: "Visionnaire" },
+                { text: "Respecter les procédures et méthodes établies", personality: "Méthodique" },
+                { text: "Explorer de nouveaux territoires et opportunités", personality: "Explorateur" }
             ]},
             { id: 12, question: "Dans la planification d'un projet, je me concentre sur…", options: [
-                { text: "Les aspects novateurs et différenciants", personality: "Créatif" },
-                { text: "La faisabilité technique et les ressources", personality: "Analyste" },
-                { text: "L'engagement et la mobilisation de l'équipe", personality: "Empathique" },
-                { text: "Les jalons stratégiques et les livrables", personality: "Stratège" }
+                { text: "Suivre mes idéaux et valeurs profondes", personality: "Idéaliste" },
+                { text: "Atteindre un niveau d'excellence irréprochable", personality: "Perfectionniste" },
+                { text: "Mettre en place une stratégie gagnante", personality: "Stratège" },
+                { text: "Créer quelque chose d'original et innovant", personality: "Créatif" }
             ]},
             { id: 13, question: "Ma méthode de travail préférée est…", options: [
-                { text: "Flexible avec des moments d'inspiration", personality: "Créatif" },
-                { text: "Méthodique avec des analyses approfondies", personality: "Analyste" },
-                { text: "Collaborative avec beaucoup d'interactions", personality: "Empathique" },
-                { text: "Structurée avec des objectifs précis", personality: "Stratège" }
+                { text: "Organiser et planifier chaque étape du projet", personality: "Organisateur" },
+                { text: "Communiquer et partager les idées avec tous", personality: "Communicant" },
+                { text: "Prendre le leadership et diriger l'équipe", personality: "Leader" },
+                { text: "Collaborer étroitement avec les autres", personality: "Collaboratif" }
             ]},
             { id: 14, question: "Quand je forme une équipe, je recherche…", options: [
-                { text: "Des profils diversifiés et complémentaires", personality: "Créatif" },
-                { text: "Des compétences techniques solides", personality: "Analyste" },
-                { text: "Des personnes avec qui je peux créer du lien", personality: "Empathique" },
-                { text: "Des membres alignés sur les objectifs", personality: "Stratège" }
+                { text: "Accompagner et guider les autres vers la réussite", personality: "Mentor" },
+                { text: "Maintenir mon indépendance et autonomie", personality: "Indépendant" },
+                { text: "Entreprendre de nouveaux projets ambitieux", personality: "Entrepreneur" },
+                { text: "Chercher des solutions réalistes et applicables", personality: "Réaliste" }
             ]},
             { id: 15, question: "Face à l'échec, ma première réaction est de…", options: [
-                { text: "Chercher une approche complètement différente", personality: "Créatif" },
-                { text: "Analyser ce qui n'a pas fonctionné", personality: "Analyste" },
-                { text: "M'assurer que l'équipe garde le moral", personality: "Empathique" },
-                { text: "Réajuster rapidement la stratégie", personality: "Stratège" }
+                { text: "Analyser ce qui s'est passé et imaginer l'avenir", personality: "Visionnaire" },
+                { text: "Réviser méthodiquement les procédures", personality: "Méthodique" },
+                { text: "Explorer de nouvelles approches", personality: "Explorateur" },
+                { text: "Rester fidèle à mes valeurs et recommencer", personality: "Idéaliste" }
             ]},
             { id: 16, question: "Dans ma carrière, je privilégie…", options: [
-                { text: "Les opportunités d'innovation et de création", personality: "Créatif" },
-                { text: "L'approfondissement de mon expertise", personality: "Analyste" },
-                { text: "Les rôles où je peux développer les autres", personality: "Empathique" },
-                { text: "Les postes à responsabilités croissantes", personality: "Stratège" }
+                { text: "Viser la perfection dans tout ce que je fais", personality: "Perfectionniste" },
+                { text: "Développer des stratégies efficaces et gagnantes", personality: "Stratège" },
+                { text: "Créer et innover constamment", personality: "Créatif" },
+                { text: "Organiser et structurer les projets", personality: "Organisateur" }
             ]},
             { id: 17, question: "Ma force principale en négociation est…", options: [
-                { text: "Trouver des solutions originales win-win", personality: "Créatif" },
-                { text: "Préparer minutieusement mes arguments", personality: "Analyste" },
-                { text: "Créer un climat de confiance et d'ouverture", personality: "Empathique" },
-                { text: "Garder le focus sur les objectifs stratégiques", personality: "Stratège" }
+                { text: "Communiquer clairement et efficacement", personality: "Communicant" },
+                { text: "Diriger les conversations avec assurance", personality: "Leader" },
+                { text: "Collaborer et échanger avec tous", personality: "Collaboratif" },
+                { text: "Accompagner et guider dans les échanges", personality: "Mentor" }
             ]},
             { id: 18, question: "Dans l'apprentissage d'une nouvelle compétence, je préfère…", options: [
-                { text: "Expérimenter et découvrir par moi-même", personality: "Créatif" },
-                { text: "Étudier la théorie puis pratiquer méthodiquement", personality: "Analyste" },
-                { text: "Apprendre avec d'autres dans un contexte social", personality: "Empathique" },
-                { text: "Suivre un programme structuré avec des objectifs", personality: "Stratège" }
+                { text: "Maintenir mon autonomie et indépendance", personality: "Indépendant" },
+                { text: "Entreprendre de nouveaux défis ambitieux", personality: "Entrepreneur" },
+                { text: "Trouver des solutions pratiques et réalistes", personality: "Réaliste" },
+                { text: "Concevoir une vision d'avenir inspirante", personality: "Visionnaire" }
             ]},
             { id: 19, question: "Ma contribution unique dans une équipe est…", options: [
-                { text: "Apporter des idées fraîches et stimulantes", personality: "Créatif" },
-                { text: "Fournir des analyses rigoureuses et objectives", personality: "Analyste" },
-                { text: "Créer de la cohésion et soutenir chacun", personality: "Empathique" },
-                { text: "Donner une direction claire et mobilisatrice", personality: "Stratège" }
+                { text: "Apporter de la rigueur et des méthodes structurées", personality: "Méthodique" },
+                { text: "Explorer de nouvelles approches et solutions", personality: "Explorateur" },
+                { text: "Défendre les valeurs et l'éthique du groupe", personality: "Idéaliste" },
+                { text: "Garantir la qualité et l'excellence du travail", personality: "Perfectionniste" }
             ]},
             { id: 20, question: "Pour évaluer la performance, je me base sur…", options: [
-                { text: "L'originalité et l'innovation des solutions", personality: "Créatif" },
-                { text: "La qualité technique et la précision", personality: "Analyste" },
-                { text: "L'impact sur le développement des personnes", personality: "Empathique" },
-                { text: "L'atteinte des objectifs fixés", personality: "Stratège" }
+                { text: "L'atteinte des objectifs stratégiques", personality: "Stratège" },
+                { text: "Le niveau d'innovation et de créativité", personality: "Créatif" },
+                { text: "L'efficacité de l'organisation", personality: "Organisateur" },
+                { text: "La qualité de la communication", personality: "Communicant" }
             ]},
             { id: 21, question: "Dans la gestion du temps, je privilégie…", options: [
-                { text: "La flexibilité pour saisir les opportunités", personality: "Créatif" },
-                { text: "La planification détaillée et le suivi rigoureux", personality: "Analyste" },
-                { text: "L'équilibre entre travail et relations humaines", personality: "Empathique" },
-                { text: "L'optimisation pour maximiser les résultats", personality: "Stratège" }
+                { text: "Prendre des décisions rapides et efficaces", personality: "Leader" },
+                { text: "Coordonner les activités en équipe", personality: "Collaboratif" },
+                { text: "Accompagner le rythme des autres", personality: "Mentor" },
+                { text: "Gérer mon temps de façon autonome", personality: "Indépendant" }
             ]},
             { id: 22, question: "Mon approche du risque professionnel est…", options: [
-                { text: "Prendre des risques calculés pour innover", personality: "Créatif" },
-                { text: "Évaluer minutieusement avant de décider", personality: "Analyste" },
-                { text: "Considérer l'impact sur les personnes", personality: "Empathique" },
-                { text: "Prendre des risques stratégiques mesurés", personality: "Stratège" }
+                { text: "Prendre des risques calculés pour innover", personality: "Entrepreneur" },
+                { text: "Évaluer prudemment les risques réels", personality: "Réaliste" },
+                { text: "Anticiper les risques futurs", personality: "Visionnaire" },
+                { text: "Minimiser les risques par la méthode", personality: "Méthodique" }
             ]},
             { id: 23, question: "Dans une présentation, je mets l'accent sur…", options: [
-                { text: "L'aspect visuel et l'originalité du message", personality: "Créatif" },
-                { text: "La précision des données et des analyses", personality: "Analyste" },
-                { text: "L'interaction et l'engagement de l'audience", personality: "Empathique" },
-                { text: "La clarté des enjeux et des recommandations", personality: "Stratège" }
+                { text: "La découverte de nouvelles perspectives", personality: "Explorateur" },
+                { text: "Les valeurs et le sens du projet", personality: "Idéaliste" },
+                { text: "La qualité et la précision du contenu", personality: "Perfectionniste" },
+                { text: "La stratégie et les objectifs clairs", personality: "Stratège" }
             ]},
             { id: 24, question: "Ma façon de gérer le stress est…", options: [
-                { text: "Chercher des activités créatives et stimulantes", personality: "Créatif" },
-                { text: "Analyser la situation pour reprendre le contrôle", personality: "Analyste" },
-                { text: "Partager avec d'autres et chercher du soutien", personality: "Empathique" },
-                { text: "Me concentrer sur les priorités et l'essentiel", personality: "Stratège" }
+                { text: "Canaliser le stress dans la créativité", personality: "Créatif" },
+                { text: "Organiser et planifier pour réduire le stress", personality: "Organisateur" },
+                { text: "Parler et échanger pour décompresser", personality: "Communicant" },
+                { text: "Prendre le contrôle de la situation", personality: "Leader" }
             ]},
             { id: 25, question: "Dans le développement professionnel, j'accorde de l'importance à…", options: [
-                { text: "L'exploration de nouveaux domaines", personality: "Créatif" },
-                { text: "L'approfondissement de mon expertise technique", personality: "Analyste" },
-                { text: "Le développement de mes compétences relationnelles", personality: "Empathique" },
-                { text: "L'acquisition de compétences managériales", personality: "Stratège" }
+                { text: "Collaborer efficacement avec une équipe", personality: "Collaboratif" },
+                { text: "Accompagner et développer les autres", personality: "Mentor" },
+                { text: "Travailler en toute autonomie", personality: "Indépendant" },
+                { text: "Entreprendre de nouveaux défis", personality: "Entrepreneur" }
             ]},
             { id: 26, question: "Ma conception du feedback est…", options: [
-                { text: "Une source d'inspiration pour de nouvelles idées", personality: "Créatif" },
-                { text: "Des informations objectives pour m'améliorer", personality: "Analyste" },
-                { text: "Un moment d'échange humain constructif", personality: "Empathique" },
-                { text: "Un outil de pilotage de la performance", personality: "Stratège" }
+                { text: "Un retour factuel et constructif", personality: "Réaliste" },
+                { text: "Une opportunité d'amélioration future", personality: "Visionnaire" },
+                { text: "Un processus structuré et régulier", personality: "Méthodique" },
+                { text: "Une découverte de nouvelles perspectives", personality: "Explorateur" }
             ]},
             { id: 27, question: "Pour mobiliser une équipe, je mise sur…", options: [
-                { text: "Une vision inspirante et des défis stimulants", personality: "Créatif" },
-                { text: "La démonstration par la logique et les faits", personality: "Analyste" },
-                { text: "La confiance et la valorisation de chacun", personality: "Empathique" },
-                { text: "Des objectifs ambitieux et des enjeux clairs", personality: "Stratège" }
+                { text: "Le partage de valeurs communes", personality: "Idéaliste" },
+                { text: "L'excellence et la qualité du travail", personality: "Perfectionniste" },
+                { text: "Une vision stratégique claire", personality: "Stratège" },
+                { text: "L'innovation et la créativité", personality: "Créatif" }
             ]},
             { id: 28, question: "Dans l'organisation de mon travail, je privilégie…", options: [
-                { text: "La spontanéité et l'adaptation aux opportunités", personality: "Créatif" },
-                { text: "La systématisation et les processus éprouvés", personality: "Analyste" },
-                { text: "La collaboration et les moments d'échange", personality: "Empathique" },
-                { text: "L'efficacité et l'orientation résultats", personality: "Stratège" }
+                { text: "Organiser et planifier chaque étape du projet", personality: "Organisateur" },
+                { text: "Communiquer et partager les idées avec tous", personality: "Communicant" },
+                { text: "Prendre le leadership et diriger l'équipe", personality: "Leader" },
+                { text: "Collaborer étroitement avec les autres", personality: "Collaboratif" }
             ]},
             { id: 29, question: "Ma définition d'un environnement professionnel épanouissant inclut…", options: [
-                { text: "La liberté de créer et d'innover", personality: "Créatif" },
-                { text: "L'accès à l'information et aux outils d'analyse", personality: "Analyste" },
-                { text: "La qualité des relations humaines", personality: "Empathique" },
-                { text: "Des défis à la hauteur de mes ambitions", personality: "Stratège" }
+                { text: "Accompagner et guider les autres vers la réussite", personality: "Mentor" },
+                { text: "Maintenir mon indépendance et autonomie", personality: "Indépendant" },
+                { text: "Entreprendre de nouveaux projets ambitieux", personality: "Entrepreneur" },
+                { text: "Chercher des solutions réalistes et applicables", personality: "Réaliste" }
             ]},
             { id: 30, question: "À long terme, je souhaite être reconnu pour…", options: [
-                { text: "Ma capacité à transformer et innover", personality: "Créatif" },
-                { text: "Mon expertise et ma rigueur professionnelle", personality: "Analyste" },
-                { text: "Mon impact positif sur les autres", personality: "Empathique" },
-                { text: "Ma capacité à atteindre des objectifs ambitieux", personality: "Stratège" }
+                { text: "Ma capacité à imaginer et concevoir l'avenir", personality: "Visionnaire" },
+                { text: "Ma rigueur dans l'application des méthodes", personality: "Méthodique" },
+                { text: "Mon goût pour l'exploration et la découverte", personality: "Explorateur" },
+                { text: "Mon attachement à mes valeurs et idéaux", personality: "Idéaliste" }
             ]}
         ];
         
@@ -232,25 +233,121 @@ class PersonalityQuiz {
                 title: "Le Stratège - Architecte de la réussite",
                 description: "Vous excellez dans la planification à long terme et la prise de décisions stratégiques. Votre vision globale et votre capacité à structurer les projets font de vous un leader naturel capable de guider les équipes vers des objectifs ambitieux.",
                 strengths: ["Vision à long terme", "Leadership décisionnel", "Organisation méthodique", "Orientation résultats"],
+                values: ["Excellence", "Efficacité", "Vision", "Leadership"],
+                vigilance: ["Éviter la micro-gestion", "Déléguer efficacement", "Rester flexible dans l'exécution"],
                 careers: ["Direction générale", "Consultant stratégique", "Chef de projet senior", "Entrepreneur"]
             },
             "Créatif": {
                 title: "Le Créatif - Innovateur visionnaire", 
                 description: "Votre esprit innovant et votre capacité à penser différemment vous permettent d'apporter des solutions originales. Vous prospérez dans les environnements qui valorisent la créativité et l'expérimentation.",
                 strengths: ["Innovation constante", "Pensée divergente", "Adaptation rapide", "Inspiration d'équipe"],
+                values: ["Originalité", "Innovation", "Liberté créative", "Expression"],
+                vigilance: ["Structurer ses idées", "Respecter les contraintes", "Finaliser les projets"],
                 careers: ["Designer", "Directeur artistique", "Entrepreneur créatif", "Responsable innovation"]
             },
-            "Analyste": {
-                title: "L'Analyste - Expert de la précision",
-                description: "Votre rigueur analytique et votre attention aux détails font de vous un expert reconnu. Vous excellez dans la résolution de problèmes complexes grâce à votre approche méthodique et factuelle.",
-                strengths: ["Analyse approfondie", "Rigueur méthodologique", "Résolution de problèmes", "Expertise technique"],
-                careers: ["Analyste financier", "Consultant technique", "Chercheur", "Responsable qualité"]
+            "Organisateur": {
+                title: "L'Organisateur - Structuré et efficace",
+                description: "Vous excellez dans la structuration et l'organisation des ressources. Votre capacité à créer des systèmes efficaces et à optimiser les processus fait de vous un pilier de l'efficacité opérationnelle.",
+                strengths: ["Organisation systématique", "Efficacité opérationnelle", "Gestion des ressources", "Structuration des processus"],
+                values: ["Ordre", "Efficacité", "Planification", "Productivité"],
+                vigilance: ["Éviter la rigidité excessive", "S'adapter aux imprévus", "Laisser place à la créativité"],
+                careers: ["Gestionnaire de projet", "Responsable logistique", "Coordinateur", "Administrateur"]
             },
-            "Empathique": {
-                title: "L'Empathique - Catalyseur humain",
-                description: "Votre intelligence émotionnelle et votre capacité à comprendre les autres font de vous un élément clé dans la cohésion d'équipe. Vous excellez dans le développement des talents et la création d'environnements collaboratifs.",
-                strengths: ["Intelligence émotionnelle", "Développement des talents", "Communication interpersonnelle", "Création de cohésion"],
-                careers: ["Responsable RH", "Coach professionnel", "Manager d'équipe", "Formateur"]
+            "Communicant": {
+                title: "Le Communicant - Mobilisateur d'équipes",
+                description: "Votre talent pour la communication et votre capacité à mobiliser les équipes font de vous un catalyseur de l'engagement. Vous excellez dans la transmission d'idées et la création de dynamiques positives.",
+                strengths: ["Communication persuasive", "Mobilisation d'équipe", "Expression claire", "Influence positive"],
+                values: ["Communication", "Transparence", "Engagement", "Partage"],
+                vigilance: ["Éviter la sur-communication", "Écouter autant que parler", "Adapter le message à l'audience"],
+                careers: ["Responsable communication", "Commercial", "Formateur", "Relations publiques"]
+            },
+            "Leader": {
+                title: "Le Leader - Inspirant et décisionnaire",
+                description: "Votre charisme naturel et votre capacité à prendre des décisions font de vous un leader inspirant. Vous excellez dans la direction d'équipes et l'atteinte d'objectifs ambitieux.",
+                strengths: ["Leadership naturel", "Prise de décision", "Inspiration d'équipe", "Vision directrice"],
+                values: ["Leadership", "Courage", "Responsabilité", "Inspiration"],
+                vigilance: ["Éviter l'autoritarisme", "Déléguer efficacement", "Rester à l'écoute des équipes"],
+                careers: ["Directeur général", "Manager d'équipe", "Entrepreneur", "Consultant en leadership"]
+            },
+            "Collaboratif": {
+                title: "Le Collaboratif - Harmonieux et coopératif",
+                description: "Votre esprit d'équipe et votre capacité à créer de l'harmonie font de vous un élément précieux dans les projets collaboratifs. Vous excellez dans la coopération et la diplomatie.",
+                strengths: ["Esprit d'équipe", "Diplomatie", "Coopération", "Maintien de l'harmonie"],
+                values: ["Collaboration", "Harmonie", "Respect mutuel", "Consensus"],
+                vigilance: ["Éviter les compromis excessifs", "Affirmer ses positions", "Gérer les conflits constructivement"],
+                careers: ["Médiateur", "Coordinateur d'équipe", "Responsable partenariats", "Facilitateur"]
+            },
+            "Mentor": {
+                title: "Le Mentor - Accompagnant et bienveillant",
+                description: "Votre bienveillance et votre capacité à développer les talents font de vous un mentor naturel. Vous excellez dans l'accompagnement personnalisé et le développement des compétences.",
+                strengths: ["Accompagnement personnalisé", "Patience et bienveillance", "Développement des talents", "Guidance experte"],
+                values: ["Bienveillance", "Développement", "Patience", "Transmission"],
+                vigilance: ["Éviter la surprotection", "Laisser l'autonomie se développer", "Adapter son style d'accompagnement"],
+                careers: ["Coach professionnel", "Formateur", "Responsable RH", "Consultant en développement"]
+            },
+            "Indépendant": {
+                title: "L'Indépendant - Autonome et libre",
+                description: "Votre autonomie et votre capacité à travailler de manière indépendante font de vous un professionnel polyvalent. Vous excellez dans la gestion de votre propre activité et la prise d'initiatives.",
+                strengths: ["Autonomie complète", "Initiative personnelle", "Liberté d'action", "Auto-gestion"],
+                values: ["Liberté", "Autonomie", "Flexibilité", "Indépendance"],
+                vigilance: ["Éviter l'isolement", "Maintenir les connexions", "Gérer la solitude professionnelle"],
+                careers: ["Freelance", "Consultant indépendant", "Entrepreneur solo", "Travailleur nomade"]
+            },
+            "Entrepreneur": {
+                title: "L'Entrepreneur - Réalisateur et dynamique",
+                description: "Votre dynamisme et votre capacité à concrétiser des idées font de vous un entrepreneur naturel. Vous excellez dans le lancement de projets et la création de valeur.",
+                strengths: ["Concrétisation d'idées", "Dynamisme entrepreneurial", "Prise d'initiative", "Réalisation de projets"],
+                values: ["Innovation", "Création", "Dynamisme", "Réalisation"],
+                vigilance: ["Éviter la dispersion", "Finaliser les projets", "Gérer les risques"],
+                careers: ["Créateur d'entreprise", "Chef de produit", "Business developer", "Innovateur"]
+            },
+            "Réaliste": {
+                title: "Le Réaliste - Pragmatique et concret",
+                description: "Votre pragmatisme et votre approche concrète font de vous un professionnel efficace. Vous excellez dans l'application pratique et la recherche de solutions réalistes.",
+                strengths: ["Pragmatisme", "Solutions concrètes", "Efficacité pratique", "Sens du réel"],
+                values: ["Pragmatisme", "Efficacité", "Concret", "Réalisme"],
+                vigilance: ["Éviter le pessimisme", "Rester ouvert aux innovations", "Ne pas limiter les possibilités"],
+                careers: ["Ingénieur", "Technicien expert", "Gestionnaire opérationnel", "Consultant technique"]
+            },
+            "Visionnaire": {
+                title: "Le Visionnaire - Futuriste et inspirant",
+                description: "Votre vision futuriste et votre capacité à anticiper les tendances font de vous un guide vers l'avenir. Vous excellez dans l'innovation stratégique et l'inspiration.",
+                strengths: ["Vision futuriste", "Innovation stratégique", "Inspiration", "Anticipation des tendances"],
+                values: ["Vision", "Innovation", "Futur", "Transformation"],
+                vigilance: ["Rester ancré dans le présent", "Concrétiser ses visions", "Communiquer clairement ses idées"],
+                careers: ["Directeur de l'innovation", "Futurologue", "Stratège d'entreprise", "Consultant en transformation"]
+            },
+            "Méthodique": {
+                title: "Le Méthodique - Rigoureux et précis",
+                description: "Votre rigueur méthodique et votre précision font de vous un expert de la qualité. Vous excellez dans l'application de méthodes éprouvées et la recherche de l'excellence.",
+                strengths: ["Méthode rigoureuse", "Précision d'exécution", "Attention aux détails", "Qualité constante"],
+                values: ["Rigueur", "Précision", "Méthode", "Qualité"],
+                vigilance: ["Éviter la rigidité excessive", "S'adapter aux changements", "Laisser place à la créativité"],
+                careers: ["Auditeur", "Contrôleur qualité", "Analyste", "Responsable conformité"]
+            },
+            "Explorateur": {
+                title: "L'Explorateur - Curieux et adaptable",
+                description: "Votre curiosité naturelle et votre adaptabilité font de vous un explorateur de nouvelles voies. Vous excellez dans la découverte et l'adaptation au changement.",
+                strengths: ["Curiosité naturelle", "Adaptabilité", "Exploration", "Ouverture au changement"],
+                values: ["Curiosité", "Découverte", "Adaptabilité", "Ouverture"],
+                vigilance: ["Éviter la dispersion", "Approfondir ses découvertes", "Structurer ses explorations"],
+                careers: ["Chercheur", "Consultant en innovation", "Explorateur de marchés", "Développeur de nouveaux produits"]
+            },
+            "Idéaliste": {
+                title: "L'Idéaliste - Engagé et intègre",
+                description: "Votre engagement pour vos valeurs et votre intégrité font de vous un professionnel aligné. Vous excellez dans la défense de causes et la recherche de sens.",
+                strengths: ["Engagement pour les valeurs", "Idéalisme constructif", "Intégrité", "Motivation par le sens"],
+                values: ["Intégrité", "Engagement", "Sens", "Valeurs"],
+                vigilance: ["Éviter le perfectionnisme paralysant", "Accepter les compromis nécessaires", "Rester pragmatique"],
+                careers: ["Responsable RSE", "Militant associatif", "Consultant en éthique", "Travailleur social"]
+            },
+            "Perfectionniste": {
+                title: "Le Perfectionniste - Exigeant et excellent",
+                description: "Votre recherche de l'excellence et votre exigence qualité font de vous un professionnel d'exception. Vous excellez dans la perfection et l'amélioration continue.",
+                strengths: ["Recherche de l'excellence", "Exigence qualité", "Perfectionnement continu", "Standards élevés"],
+                values: ["Excellence", "Qualité", "Perfection", "Amélioration"],
+                vigilance: ["Éviter la paralysie par la perfection", "Accepter le 'suffisamment bon'", "Gérer le stress de l'exigence"],
+                careers: ["Expert qualité", "Artisan d'art", "Consultant en excellence", "Responsable amélioration continue"]
             }
         };
         
@@ -258,6 +355,67 @@ class PersonalityQuiz {
     }
 
     initializeQuiz() {
+        this.showIntroduction();
+    }
+
+    showIntroduction() {
+        document.getElementById('quiz-content').innerHTML = `
+            <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-3xl mx-auto border border-white/20">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-tie text-3xl text-white"></i>
+                    </div>
+                    <h1 class="text-4xl font-bold text-blue-600 mb-4">Quel est ton profil de personnalité professionnelle ?</h1>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6 mb-8">
+                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                        <span class="text-pink-500">📍</span> Prêt(e) à découvrir ton style de travail et ta personnalité professionnelle ?
+                    </p>
+                    
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Ce test rapide de 30 questions t'aidera à identifier ton profil dominant parmi 15 types de personnalités.
+                        Choisis simplement les réponses qui te correspondent le mieux.
+                    </p>
+                    
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Aucune bonne ou mauvaise réponse – sois honnête avec toi-même pour un résultat précis.
+                    </p>
+                    
+                    <div class="text-gray-800 font-semibold mb-4">
+                        En quelques minutes, tu connaîtras :
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center text-gray-700">
+                            <span class="text-yellow-500 mr-3">⭐</span>
+                            <span>Tes forces <span class="text-yellow-500">💪</span></span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <span class="text-red-500 mr-3">❤️</span>
+                            <span>Tes valeurs <span class="text-yellow-500">☀️</span></span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <span class="text-orange-500 mr-3">⚠️</span>
+                            <span>Tes points de vigilance <span class="text-orange-500">⚠️</span></span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <span class="text-blue-500 mr-3">🚀</span>
+                            <span>Des pistes professionnelles adaptées <span class="text-pink-500">🎯</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="quiz.startQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <span class="mr-2">▶️</span> Commencer le test ! <span class="ml-2">🌟</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    startQuiz() {
         this.showQuestion();
     }
 
@@ -344,7 +502,12 @@ class PersonalityQuiz {
     }
 
     calculatePersonality() {
-        const scores = { "Stratège": 0, "Créatif": 0, "Analyste": 0, "Empathique": 0 };
+        const scores = {
+            "Stratège": 0, "Créatif": 0, "Organisateur": 0, "Communicant": 0,
+            "Leader": 0, "Collaboratif": 0, "Mentor": 0, "Indépendant": 0,
+            "Entrepreneur": 0, "Réaliste": 0, "Visionnaire": 0, "Méthodique": 0,
+            "Explorateur": 0, "Idéaliste": 0, "Perfectionniste": 0
+        };
         Object.values(this.answers).forEach(personality => {
             if (scores[personality] !== undefined) scores[personality]++;
         });
@@ -355,89 +518,132 @@ class PersonalityQuiz {
     showResults() {
         const personalityType = this.calculatePersonality();
         const personality = this.personalities[personalityType];
-        const scores = { "Stratège": 0, "Créatif": 0, "Analyste": 0, "Empathique": 0 };
+        const scores = {
+            "Stratège": 0, "Créatif": 0, "Organisateur": 0, "Communicant": 0,
+            "Leader": 0, "Collaboratif": 0, "Mentor": 0, "Indépendant": 0,
+            "Entrepreneur": 0, "Réaliste": 0, "Visionnaire": 0, "Méthodique": 0,
+            "Explorateur": 0, "Idéaliste": 0, "Perfectionniste": 0
+        };
         Object.values(this.answers).forEach(type => {
             if (scores[type] !== undefined) scores[type]++;
         });
 
         document.getElementById('quiz-content').innerHTML = `
             <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-4xl mx-auto border border-white/20">
+                <!-- Header Section -->
                 <div class="text-center mb-8">
-                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <i class="fas fa-trophy text-4xl text-white"></i>
+                    <h1 class="text-4xl font-bold text-blue-600 mb-2">Bravo ! 🎉</h1>
+                    <p class="text-gray-600 text-lg mb-6">Tu viens de découvrir ton profil dominant parmi nos 15 personnalités professionnelles.</p>
+                </div>
+
+                <!-- Personality Type Section -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8 border border-blue-100 text-center">
+                    <h2 class="text-2xl font-bold text-blue-800 mb-2">${personality.title}</h2>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-4">L'${personalityType} Rigoureux</h3>
+                    <p class="text-gray-700 leading-relaxed">${personality.description}</p>
+                </div>
+
+                <!-- Four Cards Grid -->
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <!-- Tes forces -->
+                    <div class="bg-white border-2 border-blue-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-blue-600 mb-4 flex items-center">
+                            ⭐ Tes forces 💪
+                        </h3>
+                        <ul class="space-y-3">
+                            ${personality.strengths.map(strength => `
+                                <li class="flex items-center text-gray-700">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                    ${strength}
+                                </li>
+                            `).join('')}
+                        </ul>
                     </div>
-                    <h1 class="text-4xl font-bold text-gray-800 mb-2">Vos Résultats</h1>
-                    <p class="text-gray-600 text-lg">Basés sur vos 30 réponses complètes</p>
-                    <div class="mt-4 inline-flex items-center bg-green-500/20 text-green-700 px-4 py-2 rounded-full">
-                        <i class="fas fa-check-circle mr-2"></i>
-                        Quiz complété: 30/30 questions ✅
+
+                    <!-- Tes valeurs -->
+                    <div class="bg-white border-2 border-red-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-red-600 mb-4 flex items-center">
+                            ❤️ Tes valeurs ☀️
+                        </h3>
+                        <ul class="space-y-3">
+                            ${personality.values.map(value => `
+                                <li class="flex items-center text-gray-700">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                    ${value}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Tes points de vigilance -->
+                    <div class="bg-white border-2 border-orange-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-orange-600 mb-4 flex items-center">
+                            ⚠️ Tes points de vigilance ⚠️
+                        </h3>
+                        <ul class="space-y-3">
+                            ${personality.vigilance.map(point => `
+                                <li class="flex items-center text-gray-700">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                    ${point}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Des pistes professionnelles -->
+                    <div class="bg-white border-2 border-purple-200 rounded-xl p-6">
+                        <h3 class="text-lg font-bold text-purple-600 mb-4 flex items-center">
+                            🚀 Des pistes professionnelles 🎯
+                        </h3>
+                        <ul class="space-y-3">
+                            ${personality.careers.map(career => `
+                                <li class="flex items-center text-gray-700">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                    ${career}
+                                </li>
+                            `).join('')}
+                        </ul>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8 border border-blue-100">
-                    <h2 class="text-3xl font-bold text-blue-800 mb-4">${personality.title}</h2>
-                    <p class="text-gray-700 mb-6 leading-relaxed text-lg">${personality.description}</p>
+                <!-- Bottom Message -->
+                <div class="text-center mb-8">
+                    <p class="text-gray-600 mb-6">Ce profil te révèle tes forces, tes valeurs, tes points de vigilance et des pistes professionnelles adaptées.</p>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/50 rounded-lg p-4">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">
-                                <i class="fas fa-star text-yellow-500 mr-2"></i>Vos Forces Principales
-                            </h3>
-                            <ul class="space-y-2">
-                                ${personality.strengths.map(strength => `
-                                    <li class="flex items-center text-gray-700">
-                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                        ${strength}
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-white/50 rounded-lg p-4">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">
-                                <i class="fas fa-briefcase text-blue-500 mr-2"></i>Carrières Recommandées
-                            </h3>
-                            <ul class="space-y-2">
-                                ${personality.careers.map(career => `
-                                    <li class="flex items-center text-gray-700">
-                                        <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
-                                        ${career}
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
+                    <div class="bg-blue-50 rounded-xl p-6 mb-6">
+                        <ul class="text-left space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">💎</span>
+                                Prends un moment pour explorer ta fiche de profil.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">💎</span>
+                                Utilise ces informations pour mieux te connaître, booster tes talents et orienter tes choix professionnels.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">💎</span>
+                                N'hésite pas à revenir sur certaines questions si tu veux affiner ton profil !
+                            </li>
+                        </ul>
                     </div>
+                    
+                    <h3 class="text-xl font-bold text-blue-600 mb-6">Ton voyage vers la découverte de toi-même commence ici... 🌈</h3>
                 </div>
 
-                <div class="bg-white/70 rounded-xl p-6 mb-8 border border-gray-100">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
-                        <i class="fas fa-chart-bar text-purple-500 mr-2"></i>Répartition de vos 30 réponses
-                    </h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        ${Object.entries(scores).map(([type, score]) => {
-                            const percentage = (score / 30) * 100;  // 🎯 CORRIGÉ: Maintenant divise par 30!
-                            return `
-                                <div class="text-center bg-white/80 rounded-lg p-4 border">
-                                    <div class="text-3xl font-bold text-gray-800 mb-1">${score}/30</div>
-                                    <div class="text-sm text-gray-600 mb-3 font-medium">${type}</div>
-                                    <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                                        <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" 
-                                             style="width: ${percentage}%"></div>
-                                    </div>
-                                    <div class="text-xs text-gray-500 mt-1">${Math.round(percentage)}%</div>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
+                <!-- URL Display for Sharing -->
+                <div id="url-display" class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4 mb-6 text-center" style="display: none;">
+                    <p class="text-sm text-gray-600 mb-2">🔗 Lien du test:</p>
+                    <p class="font-mono text-blue-600 font-medium break-all" id="current-url"></p>
                 </div>
 
+                <!-- Action Buttons -->
                 <div class="text-center">
                     <button onclick="quiz.restart()" class="px-8 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors mr-4 font-medium shadow-lg">
-                        <i class="fas fa-redo mr-2"></i>Refaire le Quiz Complet
+                        🔄 Refaire le test
                     </button>
                     
-                    <button onclick="quiz.shareResults()" class="px-8 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors font-medium shadow-lg">
-                        <i class="fas fa-share mr-2"></i>Partager les Résultats
+                    <button onclick="quiz.shareResults()" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl hover:from-cyan-600 hover:to-purple-600 transition-colors font-medium shadow-lg">
+                        📤 Partager mes résultats
                     </button>
                 </div>
             </div>
@@ -450,22 +656,175 @@ class PersonalityQuiz {
         this.showQuestion();
     }
 
-    shareResults() {
-        const personalityType = this.calculatePersonality();
-        const personality = this.personalities[personalityType];
-        const shareText = `🎯 J'ai complété le Quiz de Personnalité Professionnelle (30 questions)!\n\nMon profil: ${personality.title}\n\n${personality.description}\n\nFaites le test complet vous aussi!`;
-        
-        if (navigator.share) {
-            navigator.share({
-                title: 'Quiz de Personnalité - 30 Questions',
-                text: shareText,
-                url: window.location.href
+    async shareResults() {
+        try {
+            const personalityType = this.calculatePersonality();
+            const personality = this.personalities[personalityType];
+            
+            // Afficher l'URL pour le screenshot (URL propre sans paramètres)
+             const urlDisplay = document.getElementById('url-display');
+             const currentUrlElement = document.getElementById('current-url');
+             const cleanUrl = window.location.origin + window.location.pathname;
+             currentUrlElement.textContent = cleanUrl;
+             urlDisplay.style.display = 'block';
+
+            // Attendre un moment pour que l'affichage se mette à jour
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Capturer le screenshot
+            const resultsContainer = document.getElementById('quiz-content');
+            
+            const canvas = await html2canvas(resultsContainer, {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                width: resultsContainer.scrollWidth,
+                height: resultsContainer.scrollHeight,
+                scrollX: 0,
+                scrollY: 0,
+                windowWidth: 1200,
+                windowHeight: 800
             });
-        } else {
-            navigator.clipboard.writeText(shareText).then(() => {
-                alert('✅ Résultats copiés dans le presse-papiers!');
-            });
+
+            // Convertir en blob
+            canvas.toBlob(async (blob) => {
+                const cleanUrl = window.location.origin + window.location.pathname;
+                 const shareText = `🎯 J'ai découvert mon profil: ${personality.title}!\n\n${personality.description}\n\n🔗 Faites le test vous aussi: ${cleanUrl}`;
+                
+                // Masquer l'URL après le screenshot
+                urlDisplay.style.display = 'none';
+                
+                if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'quiz-resultat.png', { type: 'image/png' })] })) {
+                    // Partage natif avec image
+                    const file = new File([blob], `quiz-resultat-${personality.title.toLowerCase().replace(/\s+/g, '-')}.png`, { type: 'image/png' });
+                    await navigator.share({
+                        title: 'Quiz de Personnalité - Mon Résultat',
+                        text: shareText,
+                        files: [file]
+                    });
+                } else {
+                    // Fallback: télécharger l'image et copier le texte
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `quiz-resultat-${personality.title.toLowerCase().replace(/\s+/g, '-')}.png`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    // Copier le texte avec l'URL
+                    await navigator.clipboard.writeText(shareText);
+                    
+                    this.showNotification('📸 Image téléchargée et texte copié! Partagez maintenant sur vos réseaux sociaux.', 'success');
+                }
+            }, 'image/png', 1.0);
+            
+        } catch (error) {
+            console.error('Erreur lors du partage:', error);
+            
+            // Fallback simple en cas d'erreur
+            const personalityType = this.calculatePersonality();
+            const personality = this.personalities[personalityType];
+            const cleanUrl = window.location.origin + window.location.pathname;
+             const shareText = `🎯 J'ai découvert mon profil: ${personality.title}!\n\n${personality.description}\n\n🔗 Faites le test vous aussi: ${cleanUrl}`;
+            
+            if (navigator.clipboard) {
+                await navigator.clipboard.writeText(shareText);
+                this.showNotification('📋 Texte copié! Partagez vos résultats.', 'info');
+            }
+            
+            // Masquer l'URL en cas d'erreur
+            document.getElementById('url-display').style.display = 'none';
         }
+    }
+
+    async captureScreenshot() {
+        try {
+            // Afficher l'URL pour le screenshot
+            const urlDisplay = document.getElementById('url-display');
+            const currentUrlElement = document.getElementById('current-url');
+            currentUrlElement.textContent = window.location.href;
+            urlDisplay.style.display = 'block';
+
+            // Attendre un moment pour que l'affichage se mette à jour
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Capturer le conteneur des résultats
+            const resultsContainer = document.getElementById('quiz-content');
+            
+            const canvas = await html2canvas(resultsContainer, {
+                scale: 2, // Haute résolution
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                width: resultsContainer.scrollWidth,
+                height: resultsContainer.scrollHeight,
+                scrollX: 0,
+                scrollY: 0,
+                windowWidth: 1200,
+                windowHeight: 800
+            });
+
+            // Créer un lien de téléchargement
+            const personalityType = this.calculatePersonality();
+            const personality = this.personalities[personalityType];
+            const filename = `quiz-resultat-${personality.title.toLowerCase().replace(/\s+/g, '-')}.png`;
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                // Masquer l'URL après le screenshot
+                urlDisplay.style.display = 'none';
+                
+                // Notification de succès
+                this.showNotification('📸 Screenshot HD téléchargé avec succès!', 'success');
+            }, 'image/png', 1.0);
+            
+        } catch (error) {
+            console.error('Erreur lors de la capture:', error);
+            this.showNotification('❌ Erreur lors de la capture du screenshot', 'error');
+            
+            // Masquer l'URL en cas d'erreur
+            document.getElementById('url-display').style.display = 'none';
+        }
+    }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium transition-all duration-300 transform translate-x-full`;
+        
+        if (type === 'success') {
+            notification.className += ' bg-green-500';
+        } else if (type === 'error') {
+            notification.className += ' bg-red-500';
+        } else {
+            notification.className += ' bg-blue-500';
+        }
+        
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        // Animation d'entrée
+        setTimeout(() => {
+            notification.classList.remove('translate-x-full');
+        }, 100);
+        
+        // Animation de sortie
+        setTimeout(() => {
+            notification.classList.add('translate-x-full');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
     }
 }
 
