@@ -1,0 +1,450 @@
+{
+  "score": 100,
+  "max_score": 100,
+  "distribution": {
+    "missing": "set()",
+    "extra": "set()",
+    "distribution": {
+      "Stratège": 8,
+      "Créatif": 8,
+      "Organisateur": 8,
+      "Communicant": 8,
+      "Leader": 8,
+      "Collaboratif": 8,
+      "Mentor": 8,
+      "Indépendant": 8,
+      "Réaliste": 9,
+      "Visionnaire": 9,
+      "Méthodique": 8,
+      "Perfectionniste": 7,
+      "Explorateur": 8,
+      "Idéaliste": 8,
+      "Entrepreneur": 7
+    },
+    "total_options": 120,
+    "ideal_per_personality": 8.0
+  },
+  "balance": {
+    "problems": [],
+    "avg_options": 4.0,
+    "avg_unique_personalities": 4.0,
+    "question_details": [
+      {
+        "id": 1,
+        "question": "Face à un nouveau projet, je préfère…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Créatif",
+          "Communicant",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 2,
+        "question": "Dans une réunion d'équipe, je suis plutôt celui qu...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Mentor",
+          "Collaboratif",
+          "Leader"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 3,
+        "question": "Quand je dois résoudre un problème complexe, je…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Réaliste",
+          "Perfectionniste",
+          "Méthodique",
+          "Visionnaire"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 4,
+        "question": "Ce qui me motive le plus dans un projet est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Créatif",
+          "Mentor",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 5,
+        "question": "Face à l'imprévu, je réagis en…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Visionnaire",
+          "Idéaliste",
+          "Réaliste"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 6,
+        "question": "Dans un environnement de travail idéal, je préfère...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Communicant",
+          "Indépendant",
+          "Collaboratif",
+          "Leader"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 7,
+        "question": "Quand je communique avec mes collègues, je privilé...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Réaliste",
+          "Visionnaire",
+          "Méthodique",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 8,
+        "question": "Face à un changement organisationnel, ma réaction ...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Idéaliste",
+          "Perfectionniste",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 9,
+        "question": "Mon style de leadership se caractérise par…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Créatif",
+          "Leader",
+          "Communicant"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 10,
+        "question": "Ce qui me satisfait le plus dans mon travail, c'es...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Mentor",
+          "Collaboratif",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 11,
+        "question": "Pour moi, le succès professionnel se définit par…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Réaliste",
+          "Méthodique",
+          "Visionnaire"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 12,
+        "question": "Dans la planification d'un projet, je me concentre...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Perfectionniste",
+          "Idéaliste",
+          "Créatif",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 13,
+        "question": "Ma méthode de travail préférée est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Communicant",
+          "Collaboratif",
+          "Leader"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 14,
+        "question": "Quand je forme une équipe, je recherche…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Mentor",
+          "Réaliste",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 15,
+        "question": "Face à l'échec, ma première réaction est de…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Idéaliste",
+          "Méthodique",
+          "Visionnaire"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 16,
+        "question": "Dans ma carrière, je privilégie…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Perfectionniste",
+          "Créatif",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 17,
+        "question": "Ma force principale en négociation est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Communicant",
+          "Mentor",
+          "Collaboratif",
+          "Leader"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 18,
+        "question": "Dans l'apprentissage d'une nouvelle compétence, je...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Réaliste",
+          "Visionnaire",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 19,
+        "question": "Ma contribution unique dans une équipe est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Idéaliste",
+          "Méthodique",
+          "Perfectionniste"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 20,
+        "question": "Pour évaluer la performance, je me base sur…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Créatif",
+          "Communicant",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 21,
+        "question": "Dans la gestion du temps, je privilégie…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Mentor",
+          "Collaboratif",
+          "Leader"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 22,
+        "question": "Mon approche du risque professionnel est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Réaliste",
+          "Visionnaire",
+          "Méthodique",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 23,
+        "question": "Dans une présentation, je mets l'accent sur…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Idéaliste",
+          "Perfectionniste",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 24,
+        "question": "Ma façon de gérer le stress est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Créatif",
+          "Leader",
+          "Communicant"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 25,
+        "question": "Dans le développement professionnel, j'accorde de ...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Mentor",
+          "Collaboratif",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 26,
+        "question": "Ma conception du feedback est…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Réaliste",
+          "Méthodique",
+          "Visionnaire"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 27,
+        "question": "Pour mobiliser une équipe, je mise sur…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Perfectionniste",
+          "Idéaliste",
+          "Créatif",
+          "Stratège"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 28,
+        "question": "Dans l'organisation de mon travail, je privilégie…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Organisateur",
+          "Communicant",
+          "Collaboratif",
+          "Leader"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 29,
+        "question": "Ma définition d'un environnement professionnel épa...",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Indépendant",
+          "Mentor",
+          "Réaliste",
+          "Entrepreneur"
+        ],
+        "duplicates": 0
+      },
+      {
+        "id": 30,
+        "question": "À long terme, je souhaite être reconnu pour…",
+        "total_options": 4,
+        "unique_personalities": 4,
+        "personalities": [
+          "Explorateur",
+          "Idéaliste",
+          "Méthodique",
+          "Visionnaire"
+        ],
+        "duplicates": 0
+      }
+    ]
+  },
+  "simulation": {
+    "reachable_count": 15,
+    "reachable_personalities": "{'Communicant', 'Collaboratif', 'Méthodique', 'Entrepreneur', 'Explorateur', 'Créatif', 'Indépendant', 'Réaliste', 'Mentor', 'Idéaliste', 'Visionnaire', 'Stratège', 'Organisateur', 'Perfectionniste', 'Leader'}",
+    "missing_personalities": "set()",
+    "results_distribution": {
+      "Explorateur": 60,
+      "Créatif": 88,
+      "Organisateur": 77,
+      "Réaliste": 84,
+      "Visionnaire": 88,
+      "Mentor": 73,
+      "Indépendant": 82,
+      "Perfectionniste": 31,
+      "Stratège": 81,
+      "Collaboratif": 65,
+      "Entrepreneur": 26,
+      "Idéaliste": 42,
+      "Leader": 75,
+      "Communicant": 72,
+      "Méthodique": 56
+    }
+  },
+  "targeted": {
+    "successful": "{'Communicant', 'Collaboratif', 'Méthodique', 'Entrepreneur', 'Créatif', 'Explorateur', 'Indépendant', 'Réaliste', 'Mentor', 'Idéaliste', 'Visionnaire', 'Stratège', 'Organisateur', 'Perfectionniste', 'Leader'}",
+    "failed": "set()"
+  }
+}

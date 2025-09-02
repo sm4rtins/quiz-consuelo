@@ -1,0 +1,356 @@
+###  Translation from RTF performed by UnRTF, version 0.21.10 
+### font table contains 109 fonts total
+
+AUTHOR: Consuelo Rauen
+### creation date: 1 September 2025 20:37 
+### revision date: 1 September 2025 20:37 
+### total pages: 6
+### total words: 1489
+### total chars: 8044
+
+-----------------
+
+Titulo
+Quel est ton profil de personnalité professionnelle ? 
+Enunciado 
+Prêt(e) à découvrir ton style de travail et ta personnalité professionnelle ? ??
+Ce test rapide de 30 questions taidera à identifier ton profil dominant parmi 15 types de personnalités.
+Choisis simplement les réponses qui te correspondent le mieux.
+Aucune bonne ou mauvaise réponse  sois honnête avec toi-même pour un résultat précis.
+En quelques minutes, tu connaîtras :
+"        
+Tes forces
+"        
+Tes valeurs
+"        
+Tes points de vigilance
+"        
+Des pistes professionnelles adaptées
+Clique sur « Commencer » et découvre ton profil ! ??
+1.      
+Face à un nouveau projet, je préfère&
+o       
+A. Planifier chaque étape en détail (Stratège)
+o       
+B. Imaginer des solutions originales et innovantes (Créatif)
+o       
+C. Organiser les tâches et les ressources pour que tout soit efficace (Organisateur)
+o       
+D. Communiquer et mobiliser léquipe autour de lidée (Communicant)
+2.      
+Dans un travail déquipe, je suis plutôt&
+o       
+A. Prendre les décisions et guider le groupe (Leader)
+o       
+B. Travailler en harmonie et collaborer avec les autres (Collaboratif)
+o       
+C. Accompagner et conseiller les membres de léquipe (Mentor)
+o       
+D. Préférer travailler de manière autonome et indépendante (Indépendant)
+3.      
+Quand je dois résoudre un problème complexe, je&
+o       
+A. Chercher une solution pratique et réalisable (Réaliste)
+o       
+B. Imaginer des idées nouvelles et ambitieuses (Visionnaire)
+o       
+C. Analyser méthodiquement chaque détail (Méthodique)
+o       
+D. Viser la perfection et éviter toute erreur (Perfectionniste)
+4.      
+Ce qui me motive le plus dans un projet est&
+o       
+A. Mettre en place une stratégie efficace (Stratège)
+o       
+B. Créer et inventer quelque chose doriginal (Créatif)
+o       
+C. Organiser et structurer pour que tout fonctionne (Organisateur)
+o       
+D. Aider et guider les autres pour réussir ensemble (Mentor)
+5.      
+Face à limprévu, je réagis en&
+o       
+A. Explorer de nouvelles solutions et expérimenter (Explorateur)
+o       
+B. Chercher la solution la plus pragmatique (Réaliste)
+o       
+C. Imaginer des perspectives et solutions futures (Visionnaire)
+o       
+D. Suivre mes valeurs et agir en fonction de ce qui me semble juste (Idéaliste)
+6.      
+Mon style de communication est plutôt&
+o       
+A. Prendre les devants et inspirer les autres (Leader)
+o       
+B. Échanger, convaincre et mobiliser les gens (Communicant)
+o       
+C. Exposer des faits précis et structurés (Méthodique)
+o       
+D. Exprimer mes idées de façon originale et inventive (Créatif)
+7.      
+Quand je prends une décision importante, je&
+o       
+A. Choisir la solution la plus pragmatique (Réaliste)
+o       
+B. Essayer une approche nouvelle et audacieuse (Explorateur)
+o       
+C. Vérifier que la décision est en accord avec mes valeurs (Idéaliste)
+o       
+D. Consulter les autres pour prendre la meilleure décision (Collaboratif)
+8.      
+Dans mon travail, jai besoin&
+o       
+A. Dautonomie et liberté pour avancer à ma manière (Indépendant)
+o       
+B. Davoir un rôle de leadership et dinfluence (Leader)
+o       
+C. Dorganiser et structurer mes tâches pour être efficace (Organisateur)
+o       
+D. De prendre des initiatives et concrétiser des idées nouvelles (Entrepreneur)
+9.      
+Quand je vois une opportunité&
+o       
+A. Je passe à laction rapidement et concrètement (Entrepreneur)
+o       
+B. Je lévalue avec pragmatisme avant de me lancer (Réaliste)
+o       
+C. Je réfléchis à son potentiel futur et aux impacts (Visionnaire)
+o       
+D. Je cherche à mobiliser et collaborer avec les autres (Collaboratif)
+10.     
+Mon entourage me décrit comme&
+o       
+A. Rigoureux et organisé (Méthodique)
+o       
+B. Imaginatif et créatif (Créatif)
+o       
+C. Concret et fiable (Réaliste)
+o       
+D. À lécoute et bienveillant (Mentor)
+11.     
+Quand japprends quelque chose de nouveau, je préfère&
+o       
+A. Étudier pas à pas et comprendre chaque détail (Méthodique)
+o       
+B. Explorer différentes approches et expérimenter (Explorateur)
+o       
+C. Chercher des applications pratiques et efficaces (Réaliste)
+o       
+D. Imaginer des façons originales de lutiliser (Créatif)
+12.     
+Dans un conflit, mon réflexe est de&
+o       
+A. Chercher un compromis et maintenir lharmonie (Collaboratif)
+o       
+B. Suivre mes valeurs et défendre ce qui est juste (Idéaliste)
+o       
+C. Prendre les décisions et imposer la direction (Leader)
+o       
+D. Aider à comprendre et guider les autres pour résoudre le conflit (Mentor)
+13.     
+Ce qui compte le plus pour moi au travail est&
+o       
+A. Réussir et concrétiser des projets (Entrepreneur)
+o       
+B. Être aligné avec mes valeurs (Idéaliste)
+o       
+C. Que tout soit bien organisé et efficace (Organisateur)
+o       
+D. Communiquer et créer des liens (Communicant)
+14.     
+Quand je dois préparer un projet, je&
+o       
+A. Planifie et structure chaque étape (Méthodique)
+o       
+B. Imagine les grandes lignes et la vision (Visionnaire)
+o       
+C. Agis rapidement et concrètement (Entrepreneur)
+o       
+D. Organise les ressources et les moyens (Organisateur)
+15.     
+Si je devais décrire mon énergie, elle est plutôt&
+o       
+A. Constante et régulière (Méthodique)
+o       
+B. Dynamique et entreprenante (Entrepreneur)
+o       
+C. Inspirante et motivante pour les autres (Leader)
+o       
+D. Curieuse et exploratrice (Explorateur)
+
+### picture data found, WMF type is MM_ANISOTROPIC, picture dimensions are 7620 by 7620, depth 1
+        
+pict001.wmfQuand on me donne une règle stricte, je&
+"        
+A. Veille à tout respecter à la perfection (Perfectionniste)
+"        
+B. Cherche à morganiser pour rester autonome malgré la règle (Indépendant)
+"        
+C. Vérifie que la règle est pratique et logique avant de lappliquer (Réaliste)
+"        
+D. Trouve une manière créative de ladapter ou de laméliorer (Créatif)
+17.     
+Si je devais choisir un mot qui me décrit&
+"        
+A. Organisé et structuré (Organisateur)
+"        
+B. Innovant et imaginatif (Visionnaire)
+"        
+C. Pragmatique et efficace (Réaliste)
+"        
+D. Patient et accompagnant (Mentor)
+18.     
+Dans un environnement incertain, je&
+"        
+A. Planifie chaque détail pour rester sûr de moi (Organisateur)
+"        
+B. Explore toutes les options et madapte facilement (Explorateur)
+"        
+C. Suis mes valeurs pour guider mes actions (Idéaliste)
+"        
+D. Prends les devants et guide les autres (Leader)
+19.     
+Mon rapport au temps est plutôt&
+"        
+A. Je planifie et organise mon emploi du temps (Stratège)
+"        
+B. Flexible et ouvert à de nouvelles expériences (Explorateur)
+"        
+C. Visionnaire : je pense à long terme avant tout (Visionnaire)
+"        
+D. Précis et ponctuel : je naime pas perdre de temps (Perfectionniste)
+20.     
+Dans un groupe, on me voit souvent comme&
+"        
+A. Celui qui agit et lance des initiatives (Entrepreneur)
+"        
+B. Celui qui maintient lharmonie et lécoute (Collaboratif)
+"        
+C. Celui qui guide et soutient les autres (Mentor)
+"        
+D. Celui qui propose des idées originales et créatives (Créatif)
+21.     
+Si je dois convaincre quelquun, jutilise surtout&
+"        
+A. Des arguments concrets et pratiques (Réaliste)
+"        
+B. Mon charisme et ma capacité à prendre les devants (Leader)
+"        
+C. Ma capacité à communiquer et écouter (Communicant)
+"        
+D. Mon imagination et ma vision à long terme (Visionnaire)
+22.     
+Ma plus grande satisfaction vient quand&
+"        
+A. Jai mis en place une stratégie efficace (Stratège)
+"        
+B. Jai aidé et guidé quelquun (Mentor)
+"        
+C. Jai créé quelque chose doriginal (Créatif)
+"        
+D. Jai respecté mes valeurs et agi selon mes idéaux (Idéaliste)
+23.     
+Face à une tâche répétitive, je&
+"        
+A. Suis méthodique et avance pas à pas (Méthodique)
+"        
+B. Organise mon travail pour que tout soit efficace (Organisateur)
+"        
+C. Cherche à la transformer en projet concret ou intéressant (Entrepreneur)
+"        
+D. Explore de nouvelles manières de la réaliser (Explorateur)
+24.     
+Si je devais changer de carrière, je&
+"        
+A. Choisirais un métier aligné avec mes valeurs (Idéaliste)
+"        
+B. Préférerais travailler de manière autonome (Indépendant)
+"        
+C. Opterais pour un métier structuré et organisé (Organisateur)
+"        
+D. Me lancerais dans un projet nouveau et audacieux (Explorateur)
+25.     
+Ce qui ménerve le plus dans un projet est&
+"        
+A. Le manque dorganisation et de structure (Organisateur)
+"        
+B. Labsence de créativité et de liberté (Créatif)
+"        
+C. Les blocages et les retards qui empêchent dagir (Entrepreneur)
+"        
+D. Quand les décisions ne respectent pas mes valeurs (Idéaliste)
+26.     
+Dans mes relations, japporte surtout&
+"        
+A. Organisation et méthode (Organisateur)
+"        
+B. Soutien et accompagnement (Mentor)
+"        
+C. Communication et échange (Communicant)
+"        
+D. Vision et inspiration (Visionnaire)
+27.     
+Quand jai une nouvelle idée, je&
+"        
+A. Passe immédiatement à laction pour la concrétiser (Entrepreneur)
+"        
+B. Analyse chaque détail avant de la mettre en Suvre (Méthodique)
+"        
+C. Partage et explique mon idée pour convaincre les autres (Communicant)
+"        
+D. Imagine son impact à long terme et ses possibilités (Visionnaire)
+28.     
+Je prends mes décisions surtout en fonction&
+"        
+A. Des résultats concrets et pragmatiques (Réaliste)
+"        
+B. De mes valeurs et de ce qui me semble juste (Idéaliste)
+"        
+C. Des nouvelles expériences et découvertes possibles (Explorateur)
+"        
+D. Dune vision stratégique et globale (Stratège)
+29.     
+Ce qui me stimule le plus est&
+"        
+A. Prendre les devants et guider les autres (Leader)
+"        
+B. Travailler en équipe et collaborer (Collaboratif)
+"        
+C. Créer, inventer et imaginer (Créatif)
+"        
+D. Imaginer et construire le futur (Visionnaire)
+30.     
+À la fin dun projet, je&
+"        
+A. Vérifie que tout est parfait et sans erreur (Perfectionniste)
+"        
+B. Organise les résultats et les processus (Méthodique)
+"        
+C. Partage les résultats et communique (Communicant)
+"        
+D. Passe rapidement au projet suivant et prends des initiatives (Entrepreneur)
+
+### picture data found, WMF type is MM_ANISOTROPIC, picture dimensions are 7620 by 7620, depth 1
+### picture data found, WMF type is MM_ANISOTROPIC, picture dimensions are 7620 by 7620, depth 1
+### picture data found, WMF type is MM_ANISOTROPIC, picture dimensions are 7620 by 7620, depth 1
+
+pict002.wmf
+Bas du formulaire
+        
+Bravo ! ?? Tu as terminé le test !
+Tu viens de découvrir ton profil dominant parmi nos 15 personnalités professionnelles.
+Ce profil te révèle :
+"        
+Tes forces ?? : ce qui te rend unique et performant
+"        
+Tes valeurs ?? : ce qui te motive et te guide
+"        
+Tes points de vigilance ?? : ce à quoi il est utile de prêter attention
+"        
+Des pistes professionnelles ?? : des idées pour tépanouir dans ton travail
+?? Prends un moment pour explorer ta fiche de profil.
+?? Utilise ces informations pour mieux te connaître, booster tes talents et orienter tes choix professionnels.
+?? Nhésite pas à revenir sur certaines questions si tu veux affiner ton profil !
+Ton voyage vers la découverte de toi-même commence ici& ??
+
+
